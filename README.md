@@ -24,3 +24,13 @@ See [MCP_AGENT.md](MCP_AGENT.md) for the Tiger CLI + MCP agent integration.
 ## Run it yourself
 
 Create a free service at https://console.cloud.tigerdata.com, open the SQL editor and run the files in order.
+
+
+## 6. Real-time financial data pipeline
+
+`pipeline.py` streams live trades for **BTC-USD, ETH-USD, SOL-USD** from the Coinbase Exchange public WebSocket (`ticker` channel) and batch-inserts them into the `crypto_ticks` hypertable on Tiger Cloud.
+
+- Run: `PGPASSWORD=... python3 pipeline.py 600` (seconds to run)
+- First run (2026-10-12): 3,780 ticks ingested in ~11 minutes
+- `04_realtime_ohlc.sql`: 1-minute OHLC candles with `time_bucket` + `first()/last()`, plus latest price, bid/ask spread and % change per symbol
+- `pipeline_results.txt`: query output from the live data

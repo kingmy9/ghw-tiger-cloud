@@ -19,6 +19,8 @@ Work done on a free Tiger Cloud service (`db-83026`, AWS us-east-1, PostgreSQL 1
 
 The 30‑hour‑old "old overheat" row is correctly excluded by the time filter.
 
+See [MCP_AGENT.md](MCP_AGENT.md) for the Tiger CLI + MCP agent integration.
+
 ## Run it yourself
 
 Create a free service at https://console.cloud.tigerdata.com, open the SQL editor and run the files in order.
